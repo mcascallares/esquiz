@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
-#app.config['ELASTICSEARCH_URL'] = 'http://52.4.204.9:9200/'
+#app.config['ELASTICSEARCH_URL'] = 'http://localhost:9200/'
 #es = Elasticsearch([app.config['ELASTICSEARCH_URL']])
 
 @app.route('/')
