@@ -1,0 +1,2 @@
+Flask==0.12
+elasticsearch>=5.0.0,<6.0.0
