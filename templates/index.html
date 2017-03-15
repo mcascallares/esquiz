@@ -208,14 +208,14 @@ label .glyphicon {
 }
 </style>
     
+    <form action="/submit" method="POST">
     <div class="container-fluid">
       <div class="modal-dialog">
         <div class="modal-content">
+
           <div class="modal-header">
             <h3>What's the default number of shards in Elasticsearch?</h3>
           </div>
-
-          <form action="/submit" method="POST">
           <div class="modal-body">
             <div class="quiz" id="quiz" data-toggle="buttons">
               <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q1" value="1">1</label>
@@ -223,12 +223,23 @@ label .glyphicon {
               <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q1" value="5">5</label>
             </div>
           </div>
+
+          <div class="modal-header">
+            <h3>Elasticsearch is relies on Apache Lucene?</h3>
+          </div>
+          <div class="modal-body">
+            <div class="quiz" id="quiz" data-toggle="buttons">
+              <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q2" value="True">True</label>
+              <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q2" value="False">False</label>
+            </div>
+          </div>
+          
           <input type="submit">
-          </form>
+          
 
           <div class="modal-footer text-muted"><span id="answer"></span></div>
         </div>
       </div>
-    </div>
-    
+    </div>  
+    </form>
 {% endblock %}
