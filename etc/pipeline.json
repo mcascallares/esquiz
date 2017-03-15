@@ -1,0 +1,16 @@
+// PUT _ingest/pipeline/esquiz
+{
+  "description" : "Enrich esquiz answers with client information like user agent and IP",
+  "processors" : [
+    {
+      "user_agent" : {
+        "field" : "user_agent"
+      }
+    },
+    {
+      "geoip" : {
+        "field" : "remote_addr"
+      }
+    }
+  ]
+}

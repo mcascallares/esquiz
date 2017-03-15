@@ -11,7 +11,7 @@ quiz = [
 
     {
         'name' : 'q2',
-        'question' : 'Elasticsearch relies in Apache Lucene',
+        'question' : 'Elasticsearch relies in Apache Lucene?',
         'options' : [
             {'answer' : 'True', 'correct' : True},
             {'answer' : 'False', 'correct' : False}

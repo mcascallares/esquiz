@@ -1,0 +1,27 @@
+// PUT localhost/esquiz
+{
+    "mappings" : {
+      "answer" : {
+        "properties" : {
+          "correct" : { "type" : "boolean" },
+          "timestamp" : { "type" : "date" },
+          "remote_addr" : { "type" : "ip" },
+          "geoip.location" : { "type" : "geo_point" },
+          "email" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      }
+    },
+    "settings" : {
+      "index" : {
+        "number_of_shards" : "1"
+      }
+    }
+}
