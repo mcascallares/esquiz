@@ -13,26 +13,18 @@
           <input name="email" type="email" class="form-control" placeholder="Email">
         </div>
 
+        {% for q in quiz %}
         <div class="modal-header">
-          <h3>What's the default number of shards in Elasticsearch?</h3>
+          <h3>{{ q.question }}</h3>
         </div>
         <div class="modal-body">
           <div data-toggle="buttons">
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="q1" value="1">1</label>
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="q1" value="3">3</label>
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="q1" value="5">5</label>
+            {% for o in q.options %}
+            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="{{ q.name }}" value="{{ o.answer }}">{{ o.answer }}</label>
+            {% endfor %}
           </div>
         </div>
-
-        <div class="modal-header">
-          <h3>Elasticsearch is relies on Apache Lucene?</h3>
-        </div>
-        <div class="modal-body">
-          <div data-toggle="buttons">
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="q2" value="True">True</label>
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="q2" value="False">False</label>
-          </div>
-        </div>
+        {% endfor %}
 
         <div class="modal-body">
           <div class="input-group">
