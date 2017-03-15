@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-#from elasticsearch import Elasticsearch
+from elasticsearch import Elasticsearch
 
 app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
 #app.config['ELASTICSEARCH_URL'] = 'http://localhost:9200/'
 #es = Elasticsearch([app.config['ELASTICSEARCH_URL']])
+
 
 @app.route('/')
 def index():
@@ -15,7 +16,8 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     print request.form.keys
-    flash('Thank you!')
+    # TODO index response in ES
+    flash('Thank you!') #TODO show this
     return redirect(url_for('index'))
 
 
