@@ -6,13 +6,13 @@
       "title": "Esquiz - Overview",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"col\":1,\"id\":\"a2ddb370-09d2-11e7-b3ac-e543f924bb91\",\"panelIndex\":1,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"81e57450-09d2-11e7-b3ac-e543f924bb91\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"email\",\"correct\",\"timestamp\"],\"id\":\"5031e9c0-09d2-11e7-b3ac-e543f924bb91\",\"panelIndex\":3,\"row\":7,\"size_x\":12,\"size_y\":2,\"sort\":[\"timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"afa4ebe0-09d3-11e7-b3ac-e543f924bb91\",\"panelIndex\":4,\"row\":9,\"size_x\":12,\"size_y\":6,\"type\":\"visualization\"},{\"size_x\":8,\"size_y\":6,\"panelIndex\":5,\"type\":\"visualization\",\"id\":\"255d2eb0-09d4-11e7-b3ac-e543f924bb91\",\"col\":5,\"row\":1}]",
+      "panelsJSON": "[{\"col\":1,\"id\":\"a2ddb370-09d2-11e7-b3ac-e543f924bb91\",\"panelIndex\":1,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"81e57450-09d2-11e7-b3ac-e543f924bb91\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"afa4ebe0-09d3-11e7-b3ac-e543f924bb91\",\"panelIndex\":4,\"row\":9,\"size_x\":12,\"size_y\":6,\"type\":\"visualization\"},{\"col\":5,\"id\":\"255d2eb0-09d4-11e7-b3ac-e543f924bb91\",\"panelIndex\":5,\"row\":1,\"size_x\":8,\"size_y\":6,\"type\":\"visualization\"},{\"size_x\":12,\"size_y\":2,\"panelIndex\":6,\"type\":\"search\",\"id\":\"5031e9c0-09d2-11e7-b3ac-e543f924bb91\",\"col\":1,\"row\":7,\"columns\":[\"email\",\"correct\",\"timestamp\",\"user_agent.name\",\"geoip.city_name\"],\"sort\":[\"timestamp\",\"desc\"]}]",
       "optionsJSON": "{\"darkTheme\":false}",
       "uiStateJSON": "{\"P-4\":{\"mapCenter\":[36.613763961636565,-118.125],\"mapZoom\":5}}",
       "version": 1,
       "timeRestore": true,
       "timeTo": "now",
-      "timeFrom": "now-5m",
+      "timeFrom": "now-20m",
       "refreshInterval": {
         "display": "5 seconds",
         "pause": false,
@@ -34,7 +34,9 @@
       "columns": [
         "email",
         "correct",
-        "timestamp"
+        "timestamp",
+        "user_agent.name",
+        "geoip.city_name"
       ],
       "sort": [
         "timestamp",
@@ -43,20 +45,6 @@
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"esquiz\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
-      }
-    }
-  },
-  {
-    "_id": "81e57450-09d2-11e7-b3ac-e543f924bb91",
-    "_type": "visualization",
-    "_source": {
-      "title": "Number of Answers",
-      "visState": "{\"title\":\"Number of Answers\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of Answers\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"esquiz\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
       }
     }
   },
@@ -99,6 +87,20 @@
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"esquiz\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "81e57450-09d2-11e7-b3ac-e543f924bb91",
+    "_type": "visualization",
+    "_source": {
+      "title": "Number of Answers",
+      "visState": "{\"title\":\"Number of Answers\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of Submissions\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"email.keyword\",\"customLabel\":\"# of Participants\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"esquiz\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
       }
     }
   }
