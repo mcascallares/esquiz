@@ -10,6 +10,7 @@ app.secret_key = 'dfuy48yerhfjdbsklueio'
 es = Elasticsearch(
     ['http://localhost:9200/'],
     http_auth=('elastic', 'changeme'),
+    send_get_body_as='POST'
 )
 
 #es = Elasticsearch(
