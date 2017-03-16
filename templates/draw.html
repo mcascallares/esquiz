@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+<div class="container-fluid">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="jumbotron">
+          {% if winner %}
+          <h2>The winner is {{ winner }}</h2>
+          {% else %}
+          <h2>No winner yet</h2>
+          {% endif %}
+      </div>
+      
+    </div>
+  </div>
+</div>  
+{% endblock %}

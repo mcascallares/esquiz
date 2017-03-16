@@ -1,5 +1,6 @@
 import logging
 import certifi
+import random, string
 from elasticsearch import Elasticsearch
 from flask import Flask, render_template, request, redirect, url_for, flash
 from datetime import datetime
@@ -8,12 +9,18 @@ from quiz import quiz
 app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
+#es = Elasticsearch(
+#    ['URL'],
+#    http_auth=('elastic', '1234567890'),
+#    send_get_body_as='POST',
+#    use_ssl=True,
+#    ca_certs=certifi.where()
+#
+
 es = Elasticsearch(
-    ['https://a8a9927db88266cd7ec03ad563239b5c.ap-northeast-1.aws.found.io:9243'],
-    http_auth=('elastic', 'BEcACgDS5dIbsNHVaiSdAWTi'),
-    send_get_body_as='POST',
-    use_ssl=True,
-    ca_certs=certifi.where()
+    ['localhost:9200'],
+    http_auth=('elastic', 'changeme'),
+    send_get_body_as='POST'
 )
 
 @app.route('/')
@@ -43,6 +50,26 @@ def submit():
     es.index(index='esquiz', doc_type='answer', pipeline='esquiz', body=doc)
     flash('Thanks for your response')
     return redirect(url_for('index'))
+
+
+@app.route('/draw', methods=['GET'])
+def draw():
+    seed = ''.join(random.choice(string.lowercase) for i in range(20))
+    query = {
+        "query": {
+            "function_score": {
+                "query": { "term" : { "correct" : True } },
+                "functions": [{
+                    "random_score": { "seed": seed }
+                }]
+            }
+        }
+    }
+    email = None
+    res = es.search(index='esquiz', body=query, size=1, _source_include="email")
+    if res['hits']['total'] > 0:
+        email = res['hits']['hits'][0]['_source']['email']
+    return render_template('draw.html', winner=email)
 
 
 @app.errorhandler(500)
