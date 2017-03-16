@@ -13,6 +13,10 @@ Access and response can be visualize using pre-built Kibana dashboards.
 - Ingest geoip processor plugin
 - Ingest user agent processor plugin
 
+## Configuration
+
+- [Elasticsearch configuration](https://github.com/mcascallares/esquiz/blob/master/main.py#L12)
+- [Quiz](https://github.com/mcascallares/esquiz/blob/master/quiz.py)
 
 ## Running in development mode
 
