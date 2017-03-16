@@ -34,9 +34,9 @@ pip install -r requirements.txt`
 > flask run
 ```
 
-## Running in GCP
+## Running in GAE
 
-1. Create a Python GCP app
+1. Create a Python GAE project
 
 2. Deploy web application
 
