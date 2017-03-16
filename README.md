@@ -16,7 +16,7 @@ Access and response can be visualize using pre-built Kibana dashboards.
 ## Configuration
 
 - [Elasticsearch configuration](https://github.com/mcascallares/esquiz/blob/master/main.py#L12)
-- [Quiz](https://github.com/mcascallares/esquiz/blob/master/quiz.py)
+- [Questions and answers](https://github.com/mcascallares/esquiz/blob/master/quiz.py)
 
 ## Running in development mode
 
