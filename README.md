@@ -13,7 +13,7 @@ Minimal web application to general poll/quiz using Elasticsearch as a backend.
 - Check Python libraries in requirements.txt
 
 
-## Running
+## Running in development mode
 
 1. Install requirements
 
@@ -22,8 +22,9 @@ Minimal web application to general poll/quiz using Elasticsearch as a backend.
 2. Run Flask web application
 
 ```
-export FLASK_APP=main.py
-flask run
+> export FLASK_APP=main.py
+> export FLASK_DEBUG=1
+> flask run
 ```
 
 3. Setup Kibana
