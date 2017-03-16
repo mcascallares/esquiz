@@ -32,8 +32,8 @@ pip install -r requirements.txt`
 > export FLASK_APP=main.py
 > export FLASK_DEBUG=1
 > flask run
-
 ```
+
 ## Running in GCP
 
 1. Create a Python GCP app
