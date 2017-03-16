@@ -1,3 +1,4 @@
+import logging
 from flask import Flask, render_template, request, redirect, url_for, flash
 from elasticsearch import Elasticsearch
 from datetime import datetime
@@ -29,7 +30,7 @@ def submit():
     doc = {
         'timestamp': datetime.utcnow(),
         'email' : form['email'],
-        #'remote_addr' : request.remote_addr,
+        #'remote_addr' : request.remote_addr, # TODO remove this!
         'remote_addr' : '8.8.8.8',
         'user_agent' : request.headers.get('User-Agent'),
         'correct': True
@@ -46,6 +47,13 @@ def submit():
     es.index(index='esquiz', doc_type='answer', pipeline='esquiz', body=doc)
     flash('Thanks for your response')
     return redirect(url_for('index'))
+
+
+@app.errorhandler(500)
+def server_error(e):
+    # For Google App Engine
+    logging.exception('An error occurred during a request.')
+    return 'An internal error occurred.', 500
 
 
 if __name__ == '__main__':
