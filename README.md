@@ -19,28 +19,37 @@ Access and response can be visualize using pre-built Kibana dashboards.
 
 1. Install requirements
 
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt`
+```
 
-
-2. Run web application in development
+2. Run web application using Flask
 
 ```
 > export FLASK_APP=main.py
 > export FLASK_DEBUG=1
 > flask run
-```
 
-3. Run web application in GCP
+```
+## Running in GCP
+
+1. Create a Python GCP app
+
+2. Deploy web application
 
 ```
 > pip install -t lib -r requirements.txt
+> gcloud app deploy 
 ```
 
 
-4. Setup Kibana
+## Kibana
 
 1. Create a Kibana index pattern using 'esquiz' with time based events
+
 2. Import Kibana objects stored in [kibana.json](https://github.com/mcascallares/esquiz/blob/master/etc/kibana.json)
+
+
 ## Screenshots
 
 ![Screen01](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen01.png)
