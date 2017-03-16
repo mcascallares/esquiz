@@ -1,6 +1,6 @@
 # esquiz
 
-Minimal web application to generate poll/quiz using Elasticsearch as a backennd. It also provides a draw mechanism to pick a winner among all the correct answers.
+Minimal web application to generate poll/quiz using Elasticsearch as a backennd. It also provides a draw mechanism (/draw endpoint) to pick a winner among all the correct answers.
 
 Access and response can be visualize using pre-built Kibana dashboards.
 
