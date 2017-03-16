@@ -42,4 +42,6 @@ TODO
 ## Screenshots
 
 ![Screen01](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen01.png)
+![Screen02](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen01.png)
+![Screen03](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen01.png)
 
