@@ -12,7 +12,6 @@ Access and response can be visualize using pre-built Kibana dashboards.
 - XPack for authentication/authorization
 - Ingest geoip processor plugin
 - Ingest user agent processor plugin
-- Check Python libraries in requirements.txt
 
 
 ## Running in development mode
