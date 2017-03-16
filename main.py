@@ -9,14 +9,6 @@ from quiz import quiz
 app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
-#es = Elasticsearch(
-#    ['URL'],
-#    http_auth=('elastic', '1234567890'),
-#    send_get_body_as='POST',
-#    use_ssl=True,
-#    ca_certs=certifi.where()
-#
-
 es = Elasticsearch(
     ['localhost:9200'],
     http_auth=('elastic', 'changeme'),
