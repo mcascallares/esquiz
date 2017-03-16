@@ -6,8 +6,17 @@ from quiz import quiz
 app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
-app.config['ELASTICSEARCH_URL'] = 'http://localhost:9200/'
-es = Elasticsearch([app.config['ELASTICSEARCH_URL']])
+es = Elasticsearch(
+    ['http://localhost:9200/'],
+    http_auth=('elastic', 'changeme'),
+)
+
+#es = Elasticsearch(
+#    ['localhost', 'otherhost'],
+#    http_auth=('user', 'secret'),
+#    port=443,
+#    use_ssl=True
+#)
 
 @app.route('/')
 def index():
