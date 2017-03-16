@@ -7,7 +7,7 @@ Minimal web application to general poll/quiz using Elasticsearch as a backend.
 
 - Elasticsearch 5.2.2 or above
 - Kibana 5.2.2 or above
-- XPack
+- XPack for authentication/authorization
 - Ingest geoip processor plugin
 - Ingest user agent processor plugin
 - Check Python libraries in requirements.txt
@@ -19,7 +19,8 @@ Minimal web application to general poll/quiz using Elasticsearch as a backend.
 
 `pip install -r requirements.txt`
 
-2. Run Flask web application
+
+2. Run web application in development
 
 ```
 > export FLASK_APP=main.py
@@ -27,7 +28,15 @@ Minimal web application to general poll/quiz using Elasticsearch as a backend.
 > flask run
 ```
 
-3. Setup Kibana
+3. Run web application in GCP
+
+```
+> pip install -t lib -r requirements.txt
+```
+
+
+4. Setup Kibana
+
 TODO
 
 ## Screenshots

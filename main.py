@@ -1,6 +1,7 @@
 import logging
-from flask import Flask, render_template, request, redirect, url_for, flash
+import certifi
 from elasticsearch import Elasticsearch
+from flask import Flask, render_template, request, redirect, url_for, flash
 from datetime import datetime
 from quiz import quiz
 
@@ -8,17 +9,12 @@ app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
 es = Elasticsearch(
-    ['http://localhost:9200/'],
-    http_auth=('elastic', 'changeme'),
-    send_get_body_as='POST'
+    ['https://a8a9927db88266cd7ec03ad563239b5c.ap-northeast-1.aws.found.io:9243'],
+    http_auth=('elastic', 'BEcACgDS5dIbsNHVaiSdAWTi'),
+    send_get_body_as='POST',
+    use_ssl=True,
+    ca_certs=certifi.where()
 )
-
-#es = Elasticsearch(
-#    ['localhost', 'otherhost'],
-#    http_auth=('user', 'secret'),
-#    port=443,
-#    use_ssl=True
-#)
 
 @app.route('/')
 def index():
@@ -31,8 +27,7 @@ def submit():
     doc = {
         'timestamp': datetime.utcnow(),
         'email' : form['email'],
-        #'remote_addr' : request.remote_addr, # TODO remove this!
-        'remote_addr' : '8.8.8.8',
+        'remote_addr' : request.remote_addr,
         'user_agent' : request.headers.get('User-Agent'),
         'correct': True
     }
