@@ -44,7 +44,7 @@ def submit():
             doc['correct'] = False
 
     es.index(index='esquiz', doc_type='answer', pipeline='esquiz', body=doc)
-    flash('Thank you!') #TODO show this
+    flash('Thanks for your response')
     return redirect(url_for('index'))
 
 

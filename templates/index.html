@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<form action="/submit" method="POST">
+<form action="/submit" method="POST" role="form" data-toggle="validator">
 <div class="container-fluid">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -10,7 +10,7 @@
           <h3>Your email:</h3>
         </div>
         <div class="input-group-lg">
-          <input name="email" type="email" class="form-control" placeholder="Email">
+          <input name="email" type="email" class="form-control" placeholder="Email" required>
         </div>
 
         {% for q in quiz %}
@@ -20,7 +20,9 @@
         <div class="modal-body">
           <div data-toggle="buttons">
             {% for o in q.options %}
-            <label class="btn btn-lg btn-primary btn-block"><input type="radio" name="{{ q.name }}" value="{{ o.answer }}">{{ o.answer }}</label>
+            <label class="btn btn-lg btn-primary btn-block">
+              <input type="radio" name="{{ q.name }}" value="{{ o.answer }}" required>{{ o.answer }}
+            </label>
             {% endfor %}
           </div>
         </div>
@@ -29,7 +31,7 @@
         <div class="modal-body">
           <div class="input-group">
             <div class="input-group-btn">
-              <button type="submit" class="btn btn-default btn-lg col-lg-12">Submit</button>
+              <button type="submit" class="btn btn-default btn-lg col-lg-12 col-xs-12">Submit</button>
             </div>
           </div>
         </div>
