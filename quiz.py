@@ -1,20 +1,30 @@
 quiz = [
-    { 
+    {
         'name' : 'q1',
-        'question' : 'What is the default number of shards in Elasticsearch?',
+        'question' : 'Elasticsearch uses Apache Lucene',
         'options' : [
-            {'answer' : '1', 'correct' : False},
-            {'answer' : '3', 'correct' : False},
-            {'answer' : '5', 'correct' : True}
+            {'answer' : 'True', 'correct' : True},
+            {'answer' : 'False', 'correct' : False}
         ]
     },
 
     {
         'name' : 'q2',
-        'question' : 'Elasticsearch uses Apache Lucene?',
+        'question' : 'In which programming language are Beats implemented?',
         'options' : [
-            {'answer' : 'True', 'correct' : True},
-            {'answer' : 'False', 'correct' : False}
+            {'answer' : 'Java', 'correct' : False},
+            {'answer' : 'Ruby', 'correct' : False},
+            {'answer' : 'Golang', 'correct' : True}
+        ]
+    },
+
+    {
+        'name' : 'q3',
+        'question' : 'Which license do we use for all our open source projects (Elasticsearch, Kibana, Beats, Logstash)? ',
+        'options' : [
+            {'answer' : 'Apache License', 'correct' : True},
+            {'answer' : 'GPL', 'correct' : False},
+            {'answer' : 'BSD', 'correct' : False}
         ]
     },
 ]
