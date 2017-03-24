@@ -58,4 +58,3 @@ pip install -r requirements.txt`
 ![Screen01](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen01.png)
 ![Screen02](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen02.png)
 ![Screen03](https://github.com/mcascallares/esquiz/blob/master/screenshots/screen03.png)
-
