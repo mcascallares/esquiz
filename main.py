@@ -10,9 +10,11 @@ app = Flask(__name__)
 app.secret_key = 'dfuy48yerhfjdbsklueio'
 
 es = Elasticsearch(
-    ['localhost:9200'],
-    http_auth=('elastic', 'changeme'),
-    send_get_body_as='POST'
+    ['https://host:port'],
+    http_auth=('user', 'pass'),
+    send_get_body_as='POST', # needed for GAE
+    use_ssl=True,
+    ca_certs=certifi.where()
 )
 
 @app.route('/')
